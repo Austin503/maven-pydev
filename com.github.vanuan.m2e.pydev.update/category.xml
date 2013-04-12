@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.github.vanuan.m2e.pydev.feature_0.1.0.qualifier.jar" id="com.github.vanuan.m2e.pydev.feature" version="0.1.0.qualifier">
+      <category name="com.github.vanuan.m2e.pydev.category"/>
+   </feature>
+   <category-def name="com.github.vanuan.m2e.pydev.category" label="Pydev Connector for M2E"/>
+</site>

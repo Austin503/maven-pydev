@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>m2e-pydev</artifactId>
+		<groupId>com.github.vanuan.m2e.pydev</groupId>
+		<version>0.1.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>com.github.vanuan.m2e.pydev.update</artifactId>
+	<name>Pydev Configurator for M2E Repository</name>
+	<packaging>eclipse-repository</packaging>
+	<profiles>
+		<profile>
+			<id>release</id>
+			<activation>
+				<property>
+					<name>release</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.github.github</groupId>
+						<artifactId>site-maven-plugin</artifactId>
+						<version>0.3</version>
+						<configuration>
+							<message>Updating release update site for ${project.version}</message>
+							<outputDirectory>${project.build.directory}/repository</outputDirectory>
+							<path>updates/m2e-pydev</path>
+							<merge>true</merge>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.github.github</groupId>
+				<artifactId>site-maven-plugin</artifactId>
+				<version>0.3</version>
+				<configuration>
+					<message>Updating master/snapshot update site for ${project.version}</message>
+					<outputDirectory>${project.build.directory}/repository</outputDirectory>
+					<path>updates/master/m2e-pydev</path>
+					<merge>true</merge>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+    <extension
+          point="org.eclipse.m2e.core.projectConfigurators">
+       <configurator
+             class="com.github.vanuan.m2e.pydev.inject.GuiceExtensionFactory:com.github.vanuan.m2e.pydev.PydevMavenProjectConfigurator"
+             id="com.github.vanuan.m2e.pydev.pydevProjectConfigurator"
+             name="Pydev Project Configurator">
+       </configurator>
+    </extension>
+    <extension
+          point="org.eclipse.m2e.core.lifecycleMappingMetadataSource">
+    </extension>
+   <extension
+          id="com.github.vanuan.m2e.pydev.markers"
+          point="org.eclipse.core.resources.markers" />
+   <extension
+          id="com.github.vanuan.m2e.pydev.markers.dependency"
+          point="org.eclipse.core.resources.markers">
+          <super type="org.eclipse.core.resources.problemmarker"/>
+          <super type="com.github.vanuan.m2e.pydev.markers"/>
+          <persistent value="true" />
+   </extension>
+   <extension
+          id="com.github.vanuan.m2e.pydev.markers.dependency.apklib"
+          point="org.eclipse.core.resources.markers">
+          <super type="org.eclipse.core.resources.problemmarker"/>
+          <super type="com.github.vanuan.m2e.pydev.markers.dependency"/>
+          <persistent value="true" />
+   </extension>
+   <extension
+         point="org.eclipse.m2e.core.archetypeCatalogs">
+         <remote
+               url="https://github.com/Vanuan/maven-pydev/pydev-archetype-catalog.xml"
+               description="Pydev">
+         </remote>
+   </extension>
+</plugin>
+
